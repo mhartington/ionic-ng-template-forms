@@ -1,8 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+    <ion-title> Tab 1 </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,5 +11,40 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <pre>{{myForm.value | json}}</pre>
+  <ion-list>
+    <form #myForm="ngForm">
+      <ion-item>
+        <ion-label>First Name</ion-label>
+        <ion-input type="text" name="firstName" ngModel></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Last Name</ion-label>
+        <ion-input type="text" name="lastName" ngModel></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Email</ion-label>
+        <ion-input
+          type="text"
+          name="email"
+          ngModel
+          pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Options</ion-label>
+        <ion-select
+          value="a"
+          okText="Okay"
+          cancelText="Dismiss"
+          ngModel
+          name="options"
+        >
+          <ion-select-option value="a">A</ion-select-option>
+          <ion-select-option value="b">B</ion-select-option>
+          <ion-select-option value="c">C</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </form>
+  </ion-list>
 </ion-content>
